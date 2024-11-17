@@ -20,7 +20,7 @@ A Spark-based application to demonstrate real-time query performance monitoring 
 2. Query execution time
 
 ![datadog.png](dev/datadog.png "Datadog Monitoring")
-
+link - https://p.us5.datadoghq.com/sb/81e1f30c-a4ad-11ef-a25a-2ad788a6efe0-740fa55ce4b644671fea2ef38c54a3c3
 ---
 
 # **Scaling Numbers for LogIcebergIQ Application**
@@ -164,3 +164,22 @@ A Spark-based application to demonstrate real-time query performance monitoring 
   - Weekly full scans: ~20–30 seconds for 1 TB.
 - **Storage**:
   - ~1 TB of logs = ~30–40 GB after Iceberg compaction (depends on partitioning and schema).
+
+ ---
+
+# Running Spark Job
+
+* you can submit this job using **spark-submit** or run directly in local environment by running **Main** 
+
+```shell
+spark-submit \
+  --class in.pateash.sparkiceberglogiq.Main \  # Main class in your project
+  --master local[*] \  # For local testing, change to 'yarn' or 'k8s' for cluster mode
+  --deploy-mode client \  # Change to 'cluster' if running on a cluster
+  --driver-memory 4g \  # Adjust memory for the driver
+  --executor-memory 4g \  # Adjust memory per executor
+  --executor-cores 2 \  # Number of cores per executor
+  --num-executors 4 \  # Number of executors (useful in cluster mode)
+  --jars /path/to/hadoop-aws-3.3.4.jar,/path/to/aws-java-sdk-bundle-1.12.520.jar,/path/to/iceberg-spark-runtime-3.5_2.12-1.5.0.jar \  # External dependencies
+  /path/to/target/scala-2.12/sparkiceberglogiq_2.12-0.0.1.jar
+```
