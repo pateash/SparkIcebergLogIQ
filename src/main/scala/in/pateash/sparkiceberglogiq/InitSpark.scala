@@ -1,7 +1,7 @@
 package in.pateash.sparkiceberglogiq
 
 import in.pateash.sparkiceberglogiq.Main.{createIcebergLogsTableQuery, createIcebergSchemaQuery, spark}
-import in.pateash.sparkiceberglogiq.listener.{DatadogQueryPerformanceListener, PerformanceQueryListener}
+import in.pateash.sparkiceberglogiq.listener.DatadogQueryPerformanceListener
 import org.apache.spark.sql.SparkSession
 
 trait InitSpark extends Constants {
@@ -27,7 +27,6 @@ trait InitSpark extends Constants {
     .getOrCreate()
 
   // Attach the listener
-  spark.listenerManager.register(new PerformanceQueryListener())
   spark.listenerManager.register(new DatadogQueryPerformanceListener())
 
   def setupIceberg(): Unit = {

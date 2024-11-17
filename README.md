@@ -20,7 +20,9 @@ A Spark-based application to demonstrate real-time query performance monitoring 
 2. Query execution time
 
 ![datadog.png](dev/datadog.png "Datadog Monitoring")
-link - https://p.us5.datadoghq.com/sb/81e1f30c-a4ad-11ef-a25a-2ad788a6efe0-740fa55ce4b644671fea2ef38c54a3c3
+
+link - https://p.us5.datadoghq.com/sb/81e1f30c-a4ad-11ef-a25a-2ad788a6efe0-740fa55ce4b644671fea2ef38c54a3c3?fromUser=false&from_ts=1731855359445&to_ts=1731869759445&live=true
+
 ---
 
 # **Scaling Numbers for LogIcebergIQ Application**
